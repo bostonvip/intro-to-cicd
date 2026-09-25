@@ -8,13 +8,15 @@ jobs:
     steps:
       # checks out the current git commit so we can use it.
       # read more at https://github.com/orgs/community/discussions/25682
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Run a one-line script
         run: echo "Write your CI workflow here!"
   
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Test the code
-        run: echo "Replace this with the test code"
+      - uses: actions/checkout@v7
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm test
